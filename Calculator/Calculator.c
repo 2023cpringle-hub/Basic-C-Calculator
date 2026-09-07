@@ -6,15 +6,41 @@ float multiply(float e, float f);
 float divide(float g, float h);
 
 int main(){
-    float result, result2, result3, result4;
-    result = add(5.0, 3.0);
-    printf("The result of addition is: %.2f\n", result);
-    result2 = subtract(10.0, 3.0);
-    printf("The result of subtraction is: %.2f\n", result2);
-    result3 = multiply(4.0, 3.0);
-    printf("The result of multiplication is: %.2f\n", result3);
-    result4 = divide(10.0, 2.0);
-    printf("The result of division is: %.2f\n", result4);
+    int userChoice;
+    printf("Select an operation Add (1), Subtract (2), Multiply (3), Divide (4): /n");
+    scanf("%d", &userChoice);
+    if (userChoice == 1) {
+        float num1, num2;
+        printf("Enter two numbers to add: ");
+        scanf("%f %f", &num1, &num2);
+        float result = add(num1, num2);
+        printf("The result of addition is: %.2f\n", result);
+    } else if (userChoice == 2) {
+        float num1, num2;
+        printf("Enter two numbers to subtract: ");
+        scanf("%f %f", &num1, &num2);
+        float result = subtract(num1, num2);
+        printf("The result of subtraction is: %.2f\n", result);
+    } else if (userChoice == 3) {
+        float num1, num2;
+        printf("Enter two numbers to multiply: ");
+        scanf("%f %f", &num1, &num2);
+        float result = multiply(num1, num2);
+        printf("The result of multiplication is: %.2f\n", result);
+    } else if (userChoice == 4) {
+        float num1, num2;
+        printf("Enter two numbers to divide: ");
+        scanf("%f %f", &num1, &num2);
+        if (num2 != 0) {
+            float result = divide(num1, num2);
+            printf("The result of division is: %.2f\n", result);
+        } else {
+            printf("Error: Division by zero is not allowed.\n");
+        }
+    } else {
+        printf("Invalid choice. Please select a valid operation.\n");
+    }
+    return 0;
 }
 
 float add(float a, float b){
